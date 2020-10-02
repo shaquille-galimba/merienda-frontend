@@ -13,7 +13,7 @@ function getStores() {
 		stores.data.forEach(store => {
 			let newStore = new Store(store, store.attributes)
 
-			document.querySelector('#stores-list').innerHTML += newStore.renderStoreList()
+			document.querySelector('#store-list-container').innerHTML += newStore.renderStoreList()
 		})
 	})
 }
