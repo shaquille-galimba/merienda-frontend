@@ -11,10 +11,7 @@ class Store {
 
 	renderStoreList() {
 		return `
-		<div class="store-lists">
-			<img src=${this.logo} class="logo-small" alt="...">
-			<div>${this.name}</div>
-		</div>
+		<li class="store-name">${this.name}</li>
 		`
 	}
 }

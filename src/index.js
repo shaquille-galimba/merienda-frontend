@@ -13,7 +13,7 @@ function getStores() {
 		stores.data.forEach(store => {
 			let newStore = new Store(store, store.attributes)
 
-			document.querySelector('#store-list-container').innerHTML += newStore.renderStoreList()
+			document.querySelector('.sidenav').innerHTML += newStore.renderStoreList()
 		})
 	})
 }
