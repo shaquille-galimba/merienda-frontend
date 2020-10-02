@@ -1,38 +1,88 @@
-.sidenav {
-  height: 100%; /* Full-height: remove this if you want "auto" height */
-  width: 15%; /* Set the width of the sidebar */
-  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
-  z-index: 1; /* Stay on top */
-  top: 0; /* Stay at the top */
-  left: 0;
-  background-color: #111; /* Black */
-  overflow-x: hidden; /* Disable horizontal scroll */
-  padding-top: 20px;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Sansita+Swashed:wght@500&display=swap');
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	background-color: #24252a;
 }
 
-/* The navigation menu links */
-.sidenav li {
-  padding: 6px 8px 6px 16px;
-  text-decoration: none;
-  font-size: 25px;
-  color: #818181;
-  display: block;
-	text-align: center;
+
+/* header styles */
+
+header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 30px 10%;
 }
 
-/* When you mouse over the navigation links, change their color */
-.sidenav a:hover {
-  color: #f1f1f1;
+li, button {
+	font-family: "Montserrat", sans-serif;
+	font-weight: 500;
+	font-size: 16px;
+	color: #ecf0f1;
+	text-decoration: none;
 }
 
-/* Style page content */
-.main {
-  margin-left: 160px; /* Same as the width of the sidebar */
-  padding: 0px 10px;
+#title {
+	font-family: 'Sansita Swashed', cursive;
+	font-weight: 500;
+	font-size: 32px;
+	color: #ecf0f1;
+	text-decoration: none;
+	cursor: pointer;
 }
 
-/* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
-@media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
+
+.nav_btns {
+	list-style: none;
+}
+
+.nav_btns li {
+	display: inline-block;
+	padding: 0px 20px;
+	cursor: pointer;
+}
+
+.nav_btns li:hover {
+	transition: all 0.3s ease 0s;
+	color: #0088a9;
+}
+
+button {
+	padding: 9px 25px;
+	background-color: rgba(0,136,169,1);
+	border: none;
+	border-radius: 50px;
+	cursor: pointer;
+	transition: all 0.3s ease 0s;
+}
+
+button:hover {
+	background-color: rgba(0,136,169,0.8);
+}
+
+/* main styles */
+main {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.head {
+	background-color: white;
+	width: 100%;
+	height: 500px;
+	display: block;
+}
+
+.stores-container {
+	background-color: yellow;
+	width: 20%;
+	height: 500px;
+}
+
+.store-card {
+	background-color: green;
+	width: 80%;
 }
