@@ -21,10 +21,28 @@ class Store {
 	}
 
 	renderStoreCard() {
-		const img = document.createElement('img')
+		const card = document.createElement('div'),
+		img = document.createElement('img'),
+		name = document.createElement('div'),
+		desc = document.createElement('div'),
+		owner = document.createElement('div'),
+		link = document.createElement('a')
+
 		img.src = this.logo
 		img.classList.add('logo')
-		this.card.replaceChild(img, this.card.firstChild)
+
+		name.innerHTML = this.name
+
+		owner.innerHTML = `<strong>Owner: </strong> ${this.owner}`
+
+		desc.innerHTML = this.description
+
+		link.href = this.store_link
+		link.target = "_blank"
+		link.innerHTML = "Order here"
+
+		card.append(img, name, owner, desc, link)
+		this.card.replaceChild(card, this.card.firstChild)
 	}
 }
 

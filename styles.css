@@ -10,7 +10,7 @@
 body,
 html {
   overflow: hidden;
-	background-color: #24252a;
+	background: linear-gradient(0deg, rgba(198,193,194,1) 0%, rgba(215,166,125,1) 100%);
 }
 
 
@@ -21,7 +21,9 @@ header {
 	justify-content: space-between;
 	align-items: center;
 	padding: 0 5%;
-	height: 8vh
+	height: 8vh;
+	background-color: #24252a;
+	border-bottom: 1px solid white;
 }
 
 nav li, button {
@@ -89,20 +91,22 @@ main {
 	/* background-color: yellow; */
 	width: 20%;
 	/* height: 92vh; */
-	border-right: 1px solid white;
 	list-style: none;
+	padding: 10px;
 }
 
 .store-card {
-	/* background-color: green; */
 	width: 60%;
 	/* height: 7000px; */
 	overflow-y: auto;
 	height: 92vh;
+	border-right: 1px ridge white;
+	border-left: 1px ridge white;
+	padding: 10px;
 }
 
 .form-window {
-	background-color: white;
+	/* background-color: white; */
 	width: 20%;
 	/* height: 92vh; */
 	/* color: white; */
@@ -115,9 +119,14 @@ main {
 	color: #24252a;
 	text-decoration: none;
 	text-align: center;
-	background-color: #ecf0f1;
+	/* background-color: #ecf0f1; */
 	padding: 20px;
 	border-radius: 25px;
+	cursor: pointer;
+}
+
+.store-names:hover {
+	background-color: #ecf0f1;
 }
 
 /* store-card styles */
