@@ -94,7 +94,7 @@ main {
 }
 
 .store-card {
-	background-color: green;
+	/* background-color: green; */
 	width: 60%;
 	/* height: 7000px; */
 	overflow-y: auto;
@@ -118,4 +118,10 @@ main {
 	background-color: #ecf0f1;
 	padding: 20px;
 	border-radius: 25px;
+}
+
+/* store-card styles */
+.logo {
+	height: 200px;
+	width: 200px;
 }

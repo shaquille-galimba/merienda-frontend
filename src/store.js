@@ -16,13 +16,15 @@ class Store {
 		const li = document.createElement('li')
 		li.appendChild(document.createTextNode(`${this.name}`))
 		li.classList.add('store-names')
+		li.dataset.id = this.id
 		this.container.appendChild(li)
 	}
 
 	renderStoreCard() {
 		const img = document.createElement('img')
 		img.src = this.logo
-		this.card.appendChild(img)
+		img.classList.add('logo')
+		this.card.replaceChild(img, this.card.firstChild)
 	}
 }
 

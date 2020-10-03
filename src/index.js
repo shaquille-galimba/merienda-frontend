@@ -2,12 +2,8 @@ const endPoint = "http://localhost:3000/api/v1/stores"
 
 document.addEventListener('DOMContentLoaded', () => {
 	console.log('Loaded')
-	let storeContainer = document.querySelector('.store-container')
 	getStores()
-
-	storeContainer.addEventListener("click", (e) => {
-		console.log(e.target)
-	})
+	eventListeners()
 })
 
 function getStores() {
@@ -17,12 +13,18 @@ function getStores() {
 		console.log(stores)
 		stores.data.forEach(store => {
 			let newStore = new Store(store, store.attributes)
-			// let storeContainer = document.querySelector('.store-container')
 			newStore.renderStoreLi()
-
-			// storeContainer.appendChild(newStore.renderStoreLi())
-
-			// document.querySelector('.store-container').innerHTML += newStore.renderStoreLi()
 		})
+	})
+}
+
+function eventListeners() {
+	let storeContainer = document.querySelector('.store-container')
+	storeContainer.addEventListener("click", (e) => {
+		// console.log(e.target.dataset.id)
+		const id = e.target.dataset.id
+		const store = Store.all.find(store => store.id === id)
+
+		store.renderStoreCard()
 	})
 }
