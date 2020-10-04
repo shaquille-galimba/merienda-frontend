@@ -8,8 +8,10 @@ class Store {
 		this.logo = storeAttributes.logo
 		this.container = document.querySelector('.store-container')
 		this.card = document.querySelector('.store-card')
+		this.items = []
 		// debugger
 		Store.all.push(this)
+		// console.log(this.items)
 	}
 
 	renderStoreLi() {
