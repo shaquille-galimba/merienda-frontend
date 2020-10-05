@@ -101,7 +101,7 @@ main {
 	overflow-y: auto;
 	height: 92vh;
 	border-right: 1px ridge white;
-	border-left: 1px ridge white;
+	/* border-left: 1px ridge white; */
 	padding: 10px;
 }
 
@@ -113,20 +113,30 @@ main {
 }
 
 /* stores-container styles */
+.store-container {
+	background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0, 0.4);
+	color: white;
+	border: 3px solid #f1f1f1;
+	height: 100%;
+}
+
 .store-names {
 	font-weight: 500;
 	font-size: 32px;
-	color: #24252a;
+	/* color: #24252a; */
 	text-decoration: none;
 	text-align: center;
 	/* background-color: #ecf0f1; */
 	padding: 20px;
 	border-radius: 25px;
 	cursor: pointer;
+	margin-top: 10px;
 }
 
 .store-names:hover {
-	background-color: #ecf0f1;
+	/* background-color: #ecf0f1; */
+	background-color: rgb(0,0,0);
 }
 
 /* store-card styles */
