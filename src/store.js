@@ -26,6 +26,7 @@ class Store {
 	renderStoreCard() {
 		const storeCard = document.createElement('div'),
 		infoCard = document.createElement('div'),
+		menuContainer = document.createElement('div'),
 		infos = document.createElement('div'),
 		btns = document.createElement('div'),
 		img = document.createElement('img'),
@@ -33,7 +34,9 @@ class Store {
 		desc = document.createElement('div'),
 		owner = document.createElement('div'),
 		loc = document.createElement('div'),
-		link = document.createElement('a')
+		link = document.createElement('a'),
+		menu = document.createElement('div'),
+		menuHeader = document.createElement('h1')
 
 		img.src = this.logo
 		img.classList.add('logo')
@@ -61,7 +64,16 @@ class Store {
 		infoCard.classList.add('info-card')
 		infoCard.append(img, infos, btns)
 
-		storeCard.append(infoCard)
+		menuContainer.classList.add('menu-container')
+
+		menuHeader.classList.add('menu-header')
+		menuHeader.innerHTML = "Menu"
+
+		this.items.forEach(item => item.renderItemCard(menuContainer))
+
+		menu.append(menuHeader, menuContainer)
+
+		storeCard.append(infoCard, menu)
 		this.card.replaceChild(storeCard, this.card.firstChild)
 	}
 }
