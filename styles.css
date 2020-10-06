@@ -198,13 +198,20 @@ main {
 
 .link {
 	text-decoration: none;
-	color: blue;
+	color: rgba(0,136,169,1);
 }
 
 .item-img {
 	width: 210px;
 	height: 210px;
 	padding: 10px;
+}
+
+.img-containers {
+	background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0, 0.4);
+	border-top-left-radius: 20px;
+	border-top-right-radius: 20px;
 }
 
 .item-info {
@@ -216,18 +223,35 @@ main {
 	padding: 10px;
 }
 
-.menu-cards {
+.item-names {
+	color: rgb(0,0,0);
+	font-weight: bold;
+}
+
+.item-cards {
 	/* padding: 10px; */
 	width: 30%;
 	/* flex-grow: 1; */
 	text-align: center;
 	margin: 10px;
+	cursor: pointer;
+	transition: all 0.3s ease 0s;
 	/* background: #f1f1f1; */
-	background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0, 0.4);
-	border-radius: 20px;
+	/* background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0, 0.4); */
+
 
 	/* border: 1px solid black; */
+}
+
+
+/* .item-cards:hover {
+	border: 3px solid #f1f1f1;
+	border-radius: 20px;
+} */
+
+.item-desc {
+	transition: all 0.3s ease 0s;
 }
 
 .menu-header {
@@ -235,3 +259,7 @@ main {
 	border-top: 3px solid #f1f1f1;
 	padding: 10px;
 }
+
+/* .hidden {
+	display: none;
+} */

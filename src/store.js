@@ -75,6 +75,9 @@ class Store {
 
 		storeCard.append(infoCard, menu)
 		this.card.replaceChild(storeCard, this.card.firstChild)
+
+		// menuContainer.addEventListener("click", (e) => console.log(e.target.dataset.itemId))
+		// renderItemDescEvent(this)
 	}
 }
 

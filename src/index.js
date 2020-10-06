@@ -3,7 +3,7 @@ const endPoint = "http://localhost:3000/api/v1/stores"
 document.addEventListener('DOMContentLoaded', () => {
 	console.log('Loaded')
 	getData()
-	eventListeners()
+	// eventListeners()
 })
 
 function getData() {
@@ -19,16 +19,45 @@ function getData() {
 				newStore.items.push(newItem)
 			})
 		})
+		renderStoreEvent()
 	})
 }
 
-function eventListeners() {
-	let storeContainer = document.querySelector('.store-container')
-	storeContainer.addEventListener("click", (e) => {
-		// console.log(e.target.dataset.id)
-		const id = e.target.dataset.id
-		const store = Store.all.find(store => store.id === id)
+function renderStoreEvent() {
+	let storeNames = document.querySelectorAll('.store-names')
+	// console.log(storeNames)
+	storeNames.forEach(store => {
+		store.addEventListener("click", (e) => {
+			// console.log(e.target.dataset.id)
+			const id = e.target.dataset.id
+			const store = Store.all.find(store => store.id === id)
 
-		store.renderStoreCard()
+			store.renderStoreCard()
+		})
+	})
+}
+
+function renderItemDescEvent(store) {
+	let itemCards = document.querySelectorAll('.item-cards')
+	// console.log(store)
+	// console.log(itemCards)
+	itemCards.forEach(itemCard => {
+		itemCard.addEventListener("click", (e) => {
+			const id = e.target.dataset.itemId
+			console.log(id)
+			const item = store.items.find(item => item.id == id)
+			// console.log(store.items[2].id == id)
+
+			item.toggleDescOn()
+		})
+
+		itemCard.addEventListener("mouseout", (e) => {
+			const id = e.target.dataset.itemId
+			console.log(id)
+			const item = store.items.find(item => item.id == id)
+			// console.log(store.items[2].id == id)
+
+			item.toggleDescOff()
+		})
 	})
 }
