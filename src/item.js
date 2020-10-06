@@ -9,18 +9,22 @@ class Item {
 	renderItemCard(menuContainer) {
 		const menuCard = document.createElement('div'),
 		img = document.createElement('img'),
+		info = document.createElement('div'),
 		name = document.createElement('div'),
 		price = document.createElement('div')
 
 		img.src = this.image
-		img.classList.add('menu-img')
+		img.classList.add('item-img')
 
 		name.innerHTML = `<strong>${this.name}</strong>`
 
-		price.innerHTML = this.price
+		price.innerHTML = `${this.price}php`
+
+		info.classList.add('item-info')
+		info.append(name, price)
 
 		menuCard.classList.add('menu-cards')
-		menuCard.append(img, name, price)
+		menuCard.append(img, info)
 
 		menuContainer.append(menuCard)
 	}

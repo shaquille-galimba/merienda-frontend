@@ -39,7 +39,7 @@ class Store {
 		menuHeader = document.createElement('h1')
 
 		img.src = this.logo
-		img.classList.add('logo')
+		img.classList.add('logos')
 
 		name.innerHTML = this.name
 		name.classList.add('info-names', 'names')
