@@ -186,7 +186,9 @@ main {
 
 .img-containers {
 	background-color: rgb(0,0,0);
-  background-color: rgba(0,0,0, 0.4);
+  /* background-color: rgba(0,0,0, 0.4); */
+	/* background: rgba(255, 255, 255, 0.1); */
+	background: linear-gradient(to bottom, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.1) 15%, transparent 50%, transparent 85%, rgba(255, 255, 255, 0.3) 100%);
 	border-top-left-radius: 10px;
 	border-top-right-radius: 10px;
 }
@@ -226,7 +228,8 @@ main {
 
 .item-cards:hover {
 	border-radius: 10px;
-	box-shadow: 2px 2px 4px #000000;
+	/* box-shadow: 2px 2px 4px #000000; */
+	box-shadow: 0 5px 35px rgb(0, 0, 0, 0.2);
 }
 
 .menu-header {
@@ -275,7 +278,7 @@ main {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	min-height: 100vh;
+	min-height: 92vh;
 	width: 25%;
 }
 
@@ -312,7 +315,7 @@ main {
 .box .form h2 {
 	color: inherit;
 	font-weight: 600;
-	letter-spacing: 2px;
+	/* letter-spacing: 2px; */
 	margin-bottom: 30px;
 }
 
@@ -333,6 +336,11 @@ main {
 	font-size: 16px;
 	font-weight: 300;
 	box-shadow: inset 0 0 25px rgba(0, 0, 0, 0.2);
+}
+
+.box .form .inputBx textarea {
+	max-width: 100%;
+	resize: none;
 }
 
 .box .form .inputBx input[type="submit"] {

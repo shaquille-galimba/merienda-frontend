@@ -98,7 +98,7 @@ class Store {
 		desc = document.createElement('textarea'),
 		submit = document.createElement('input')
 
-		h2.innerHTML = "Add item"
+		h2.innerHTML = `Add item to ${this.name}`
 
 		name.setAttribute('type', 'text')
 		name.setAttribute('placeholder', 'Item Name')
@@ -116,6 +116,7 @@ class Store {
 		imgUrlDiv.append(imgUrl)
 
 		desc.setAttribute('placeholder', 'Description')
+		desc.setAttribute('rows', '4')
 		descDiv.classList.add('inputBx')
 		descDiv.append(desc)
 
