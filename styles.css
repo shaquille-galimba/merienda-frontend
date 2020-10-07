@@ -193,7 +193,7 @@ main {
 .item-info {
 	background: rgb(2,150,218);
 	background: linear-gradient(0deg, rgba(2,150,218,1) 0%, rgba(108,202,205,1) 100%);
-	color: #ecf0f1;
+	color: rgb(0,0,0);
 	border-bottom-left-radius: 10px;
 	border-bottom-right-radius: 10px;
 	padding: 10px;
@@ -204,6 +204,15 @@ main {
 .item-names {
 	color: rgb(0,0,0);
 	font-weight: bold;
+}
+
+.item-desc {
+	padding: 10px;
+}
+
+.item-price {
+	color: #0a5a00;
+	font-style: italic;
 }
 
 .item-cards {

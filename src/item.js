@@ -27,8 +27,10 @@ class Item {
 		name.classList.add('item-names')
 
 		price.innerHTML = `${this.price}php`
+		price.classList.add('item-price')
 
 		desc.innerHTML = this.description
+		desc.classList.add("item-desc")
 
 		info.classList.add('item-info')
 		info.append(name, price, desc)
