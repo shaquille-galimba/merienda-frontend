@@ -32,6 +32,7 @@ class Store {
 		desc = document.createElement('div'),
 		owner = document.createElement('div'),
 		loc = document.createElement('div'),
+		addItemBtn = document.createElement('button'),
 		link = document.createElement('a'),
 		menu = document.createElement('div'),
 		menuHeader = document.createElement('h1')
@@ -48,6 +49,11 @@ class Store {
 
 		desc.innerHTML = this.description
 
+		addItemBtn.innerHTML = "Add Item"
+		addItemBtn.addEventListener("click", () => {
+			this.renderAddItemForm()
+		})
+
 		link.href = this.store_link
 		link.classList.add('link')
 		link.target = "_blank"
@@ -57,7 +63,7 @@ class Store {
 		infos.append(name, owner, loc, desc)
 
 		btns.classList.add('btns-list')
-		btns.append(link)
+		btns.append(addItemBtn, link)
 
 		infoCard.classList.add('info-card')
 		infoCard.append(img, infos, btns)
@@ -73,6 +79,60 @@ class Store {
 
 		storeCard.append(infoCard, menu)
 		this.card.replaceChild(storeCard, this.card.firstChild)
+	}
+
+	renderAddItemForm() {
+		const formWindow = document.querySelector('#form-window'),
+		formBox = document.createElement('div'),
+		formContainer = document.createElement('div'),
+		h2 = document.createElement('h2'),
+		form = document.createElement('form'),
+		nameDiv = document.createElement('div'),
+		priceDiv = document.createElement('div'),
+		imgUrlDiv = document.createElement('div'),
+		descDiv = document.createElement('div'),
+		submitDiv = document.createElement('div'),
+		name = document.createElement('input'),
+		price = document.createElement('input'),
+		imgUrl = document.createElement('input'),
+		desc = document.createElement('textarea'),
+		submit = document.createElement('input')
+
+		h2.innerHTML = "Add item"
+
+		name.setAttribute('type', 'text')
+		name.setAttribute('placeholder', 'Item Name')
+		nameDiv.classList.add('inputBx')
+		nameDiv.append(name)
+
+		price.setAttribute('type', 'number')
+		price.setAttribute('placeholder', 'Price')
+		priceDiv.classList.add('inputBx')
+		priceDiv.append(price)
+
+		imgUrl.setAttribute('type', 'text')
+		imgUrl.setAttribute('placeholder', 'Image URL')
+		imgUrlDiv.classList.add('inputBx')
+		imgUrlDiv.append(imgUrl)
+
+		desc.setAttribute('placeholder', 'Description')
+		descDiv.classList.add('inputBx')
+		descDiv.append(desc)
+
+		submit.setAttribute('type', 'submit')
+		submit.setAttribute('value', 'Add item')
+		submitDiv.classList.add('inputBx')
+		submitDiv.append(submit)
+
+		form.append(nameDiv, priceDiv, imgUrlDiv, descDiv, submitDiv)
+
+		formContainer.classList.add('form')
+		formContainer.append(h2, form)
+
+		formBox.classList.add('box')
+		formBox.append(formContainer)
+
+		formWindow.replaceChild(formBox, formWindow.firstChild)
 	}
 }
 
