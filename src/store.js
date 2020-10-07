@@ -10,9 +10,7 @@ class Store {
 		this.container = document.querySelector('.store-container')
 		this.card = document.querySelector('.main')
 		this.items = []
-		// debugger
 		Store.all.push(this)
-		// console.log(this.items)
 	}
 
 	renderStoreLi() {
@@ -75,9 +73,6 @@ class Store {
 
 		storeCard.append(infoCard, menu)
 		this.card.replaceChild(storeCard, this.card.firstChild)
-
-		// menuContainer.addEventListener("click", (e) => console.log(e.target.dataset.itemId))
-		// renderItemDescEvent(this)
 	}
 }
 
