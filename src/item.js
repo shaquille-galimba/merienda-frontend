@@ -18,13 +18,19 @@ class Item {
 		info = document.createElement('div'),
 		name = document.createElement('div'),
 		price = document.createElement('div'),
-		desc = document.createElement('div')
+		desc = document.createElement('div'),
+		removeLink = document.createElement('a')
 
 		img.src = this.image
 		img.classList.add('item-img')
 
+		removeLink.innerHTML = "X"
+		removeLink.href = "#"
+		removeLink.dataset.itemId = this.id
+		removeLink.classList.add('remove-link')
+
 		imgContainer.classList.add('img-containers')
-		imgContainer.append(img)
+		imgContainer.append(img, removeLink)
 
 		name.innerHTML = this.name
 		name.classList.add('item-names')

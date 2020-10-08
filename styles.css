@@ -80,7 +80,6 @@ button:active {
   box-shadow: 0 5px #666;
   transform: translateY(4px);
 }
-
 /* main styles */
 main {
 	display: flex;
@@ -181,10 +180,33 @@ main {
 .item-img {
 	width: 210px;
 	height: 210px;
-	padding: 10px;
+	/* padding: 10px; */
+	border: 2px solid #f1f1f1;
+	margin: 10px;
+	/* align-self: center; */
+}
+
+
+.remove-link {
+	/* align-self: flex-end; */
+	padding: 3px;
+	text-decoration: none;
+	color: red;
+	position: absolute;
+	top: 4px;
+	right: 4px;
+}
+
+.remove-link:hover {
+	background-color: rgba(255, 255, 255, 0.5);
+	border-radius: 8px;
 }
 
 .img-containers {
+	position: relative;
+	/* display: flex; */
+	/* flex-direction: column; */
+	/* justify-content: flex-end; */
 	background-color: rgb(0,0,0);
   /* background-color: rgba(0,0,0, 0.4); */
 	/* background: rgba(255, 255, 255, 0.1); */
@@ -222,7 +244,7 @@ main {
 	width: 30%;
 	text-align: center;
 	margin: 10px;
-	cursor: pointer;
+	/* cursor: pointer; */
 	overflow: hidden;
 }
 

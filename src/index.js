@@ -48,7 +48,9 @@ function addItemFormHandler(e) {
 	descInput = e.target.querySelector('#add-item-desc').value,
 	storeId = parseInt(e.target.dataset.storeId)
 
+	// console.log(nameInput, priceInput, imgInput, descInput, storeId)
 	addItemFetch(nameInput, priceInput, imgInput, descInput, storeId)
+	e.target.reset()
 }
 
 function addItemFetch(name, price, image, description, store_id) {
@@ -68,6 +70,7 @@ function addItemFetch(name, price, image, description, store_id) {
 		menuContainer = document.querySelector('.menu-container')
 
 		let newItem = new Item(itemData.id, itemData.attributes)
-		newItem.renderItemCard(menuContainer)
+		// newItem.renderItemCard(menuContainer)
+		newItem.store.renderStoreCard()
 	})
 }
