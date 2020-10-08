@@ -1,10 +1,13 @@
 class Item {
-	constructor(item) {
-		this.id = item.id
-		this.name = item.name
-		this.price = item.price
-		this.image = item.image
-		this.description = item.description
+	constructor(itemId, itemAttributes) {
+		this.id = itemId
+		this.name = itemAttributes.name
+		this.price = itemAttributes.price
+		this.image = itemAttributes.image
+		this.description = itemAttributes.description
+		this.store_id = itemAttributes.store_id
+		this.store = Store.all.find(store => store.id == this.store_id)
+		this.store.items.push(this)
 		Item.all.push(this)
 	}
 

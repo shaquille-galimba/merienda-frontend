@@ -14,8 +14,7 @@ function getData() {
 			let newStore = new Store(store, store.attributes)
 			newStore.renderStoreLi()
 			store.attributes.items.forEach(item => {
-				const newItem = new Item(item)
-				newStore.items.push(newItem)
+				const newItem = new Item(item.id, item)
 			})
 		})
 		renderStoreEvent()
@@ -39,4 +38,36 @@ handleScroll = (e) => {
     e.target.classList.add("on-scrollbar");
 		e.target.addEventListener("mouseout", () => e.target.classList.remove("on-scrollbar"))
   }
+}
+
+function addItemFormHandler(e) {
+	e.preventDefault()
+	const nameInput = e.target.querySelector('#add-item-name').value,
+	priceInput = parseInt(e.target.querySelector('#add-item-price').value),
+	imgInput = e.target.querySelector('#add-item-img').value,
+	descInput = e.target.querySelector('#add-item-desc').value,
+	storeId = parseInt(e.target.dataset.storeId)
+
+	addItemFetch(nameInput, priceInput, imgInput, descInput, storeId)
+}
+
+function addItemFetch(name, price, image, description, store_id) {
+	const bodyData = {item: {name, price, image, description, store_id}}
+
+	fetch('http://localhost:3000/api/v1/items', {
+		method: "POST",
+		headers: {
+			"Content-Type": "application/json",
+			"Accept": "application/json"
+		},
+    body: JSON.stringify(bodyData)
+	})
+	.then(res => res.json())
+	.then(item => {
+		const itemData = item.data,
+		menuContainer = document.querySelector('.menu-container')
+
+		let newItem = new Item(itemData.id, itemData.attributes)
+		newItem.renderItemCard(menuContainer)
+	})
 }

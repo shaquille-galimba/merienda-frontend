@@ -102,21 +102,25 @@ class Store {
 
 		name.setAttribute('type', 'text')
 		name.setAttribute('placeholder', 'Item Name')
+		name.id = 'add-item-name'
 		nameDiv.classList.add('inputBx')
 		nameDiv.append(name)
 
 		price.setAttribute('type', 'number')
 		price.setAttribute('placeholder', 'Price')
+		price.id = 'add-item-price'
 		priceDiv.classList.add('inputBx')
 		priceDiv.append(price)
 
 		imgUrl.setAttribute('type', 'text')
 		imgUrl.setAttribute('placeholder', 'Image URL')
+		imgUrl.id = 'add-item-img'
 		imgUrlDiv.classList.add('inputBx')
 		imgUrlDiv.append(imgUrl)
 
 		desc.setAttribute('placeholder', 'Description')
 		desc.setAttribute('rows', '4')
+		desc.id = 'add-item-desc'
 		descDiv.classList.add('inputBx')
 		descDiv.append(desc)
 
@@ -125,6 +129,9 @@ class Store {
 		submitDiv.classList.add('inputBx')
 		submitDiv.append(submit)
 
+		// form.classList.add('add-item-form')
+		form.id = "add-item-form"
+		form.dataset.storeId = this.id
 		form.append(nameDiv, priceDiv, imgUrlDiv, descDiv, submitDiv)
 
 		formContainer.classList.add('form')
@@ -134,6 +141,9 @@ class Store {
 		formBox.append(formContainer)
 
 		formWindow.replaceChild(formBox, formWindow.firstChild)
+
+		// form.addEventListener('submit', (e) => addItemFormHandler(e))
+		form.addEventListener('submit', (e) => addItemFormHandler(e))
 	}
 }
 
