@@ -49,6 +49,19 @@ class Item {
 		itemCard.append(imgContainer, info)
 
 		menuContainer.append(itemCard)
+
+		removeLink.addEventListener('click', (e) => {
+			removeItem(e)
+			// this.store.items.forEach((item, i) => {
+			// 	if (item.id === this.id) {
+			// 		this.store.splice(i, 1)
+			// 	}
+			// });
+			const index = this.store.items.indexOf(this)
+			this.store.items.splice(index, 1);
+
+			this.store.renderStoreCard()
+		})
 	}
 }
 

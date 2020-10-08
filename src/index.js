@@ -74,3 +74,18 @@ function addItemFetch(name, price, image, description, store_id) {
 		newItem.store.renderStoreCard()
 	})
 }
+
+function removeItem(e) {
+	const id = parseInt(e.currentTarget.dataset.itemId)
+	console.log(id)
+
+	fetch(`http://localhost:3000/api/v1/items/${id}`, {
+		method: 'DELETE',
+		headers: {
+			'Content-Type': 'application/json'
+		}
+	})
+	.then(res => res.json())
+	.then(res => console.log(res))
+
+}
