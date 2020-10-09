@@ -2,9 +2,7 @@
 
 Merienda is a single page application using Javascript as front-end and Rails API as the backend. The application aims to promote local food businesses from Cavite, Philippines that does delivery. It displays the store's owner/s, in what area of Cavite they can do delivery, link of where you can order, and their menu.
 
-<p align="center">
-<img src="example.PNG" alt="Merienda" width="600">
-</p>
+![Merienda](example.png)
 
 ## Installation
 
