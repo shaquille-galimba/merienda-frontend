@@ -32,7 +32,7 @@ class Store {
 		desc = document.createElement('div'),
 		owner = document.createElement('div'),
 		loc = document.createElement('div'),
-		addItemBtn = document.createElement('button'),
+		addItemBtn = document.createElement('a'),
 		link = document.createElement('a'),
 		menu = document.createElement('div'),
 		menuHeader = document.createElement('h1')
@@ -50,6 +50,8 @@ class Store {
 		desc.innerHTML = this.description
 
 		addItemBtn.innerHTML = "Add Item"
+		addItemBtn.href = "#"
+		addItemBtn.classList.add('link')
 		addItemBtn.addEventListener("click", () => {
 			this.renderAddItemForm()
 		})
@@ -63,7 +65,7 @@ class Store {
 		infos.append(name, owner, loc, desc)
 
 		btns.classList.add('btns-list')
-		btns.append(addItemBtn, link)
+		btns.append(link, addItemBtn)
 
 		infoCard.classList.add('info-card')
 		infoCard.append(img, infos, btns)
