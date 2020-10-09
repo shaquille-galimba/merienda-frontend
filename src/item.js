@@ -24,7 +24,7 @@ class Item {
 		img.src = this.image
 		img.classList.add('item-img')
 
-		removeLink.innerHTML = "X"
+		removeLink.innerHTML = "x"
 		removeLink.href = "#"
 		removeLink.dataset.itemId = this.id
 		removeLink.classList.add('remove-link')
