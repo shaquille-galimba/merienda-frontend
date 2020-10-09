@@ -33,7 +33,7 @@ function renderStoreEvent() {
 	})
 }
 
-handleScroll = (e) => {
+function handleScroll(e) {
   if (e.target.classList.contains("on-scrollbar") === false) {
     e.target.classList.add("on-scrollbar");
 		e.target.addEventListener("mouseout", () => e.target.classList.remove("on-scrollbar"))
