@@ -318,7 +318,7 @@ main {
 	position: relative;
 	padding: 50px;
 	width: 360px;
-	height: 480px;
+	height: 600px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -378,7 +378,7 @@ main {
 .box .form .inputBx input[type="submit"] {
 	background: #fff;
 	color: #111;
-	max-width: 100px;
+	max-width: 120px;
 	padding: 8px 10px;
 	box-shadow: none;
 	font-weight: 500;
