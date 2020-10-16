@@ -187,7 +187,7 @@ function addStoreFormHandler(e) {
 
 	console.log(nameInput, ownerInput, locationInput, linkInput, logoInput, descInput)
 	addStoreFetch(nameInput, ownerInput, locationInput, linkInput, logoInput, descInput)
-	// e.target.reset()
+	e.target.reset()
 }
 
 
