@@ -2,11 +2,15 @@
 
 Merienda is a single page application using Javascript as front-end and Rails API as the backend. The application aims to promote local food businesses from Cavite, Philippines that does delivery. It displays the store's owner/s, in what area of Cavite they can do delivery, link of where you can order, and their menu.
 
+## Website
+
+* [Merienda](https://merienda.netlify.app)
+
 ![Merienda](example.png)
 
 ## Installation
 
-The application is not yet deployed, but if someone wants to see how it works here's how:
+If you want to have a copy of the whole app on your environment here's how:
 
 * Clone this repo and the Rails API here: [merienda-api](https://github.com/shaquille-galimba/merienda-api)
 
