@@ -1,4 +1,4 @@
-const endPoint = "http://localhost:3000/api/v1/stores"
+const endPoint = "https://merienda.herokuapp.com/api/v1/stores"
 
 document.addEventListener('DOMContentLoaded', () => {
 	console.log('Loaded')
@@ -62,7 +62,7 @@ function addItemFormHandler(e) {
 function addItemFetch(name, price, image, description, store_id) {
 	const bodyData = {item: {name, price, image, description, store_id}}
 
-	fetch('http://localhost:3000/api/v1/items', {
+	fetch('https://merienda.herokuapp.com/api/v1/items', {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json",
@@ -85,7 +85,7 @@ function removeItem(e) {
 	const id = parseInt(e.currentTarget.dataset.itemId)
 	console.log(id)
 
-	fetch(`http://localhost:3000/api/v1/items/${id}`, {
+	fetch(`https://merienda.herokuapp.com/api/v1/items/${id}`, {
 		method: 'DELETE',
 		headers: {
 			'Content-Type': 'application/json'
@@ -194,7 +194,7 @@ function addStoreFormHandler(e) {
 function addStoreFetch(name, owner, delivery_location, store_link, logo, description) {
 	const bodyData = {store: {name, owner, delivery_location, store_link, logo, description}}
 
-	fetch('http://localhost:3000/api/v1/stores', {
+	fetch(endPoint, {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json",
