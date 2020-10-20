@@ -18,19 +18,33 @@ class Item {
 		info = document.createElement('div'),
 		name = document.createElement('div'),
 		price = document.createElement('div'),
-		desc = document.createElement('div'),
-		removeLink = document.createElement('a')
+		desc = document.createElement('div')
+
 
 		img.src = this.image
 		img.classList.add('item-img')
 
-		removeLink.innerHTML = "x"
-		removeLink.href = "#"
-		removeLink.dataset.itemId = this.id
-		removeLink.classList.add('remove-link')
 
 		imgContainer.classList.add('img-containers')
-		imgContainer.append(img, removeLink)
+		imgContainer.append(img)
+
+		if (localStorage.getItem('current_store') === this.store.id) {
+			const removeLink = document.createElement('a')
+			removeLink.innerHTML = "x"
+			removeLink.href = "#"
+			removeLink.dataset.itemId = this.id
+			removeLink.classList.add('remove-link')
+			imgContainer.append(removeLink)
+
+			removeLink.addEventListener('click', (e) => {
+				removeItem(e)
+
+				const index = this.store.items.indexOf(this)
+				this.store.items.splice(index, 1);
+
+				this.store.renderStoreCard()
+			})
+		}
 
 		name.innerHTML = this.name
 		name.classList.add('item-names')
@@ -50,18 +64,7 @@ class Item {
 
 		menuContainer.append(itemCard)
 
-		removeLink.addEventListener('click', (e) => {
-			removeItem(e)
-			// this.store.items.forEach((item, i) => {
-			// 	if (item.id === this.id) {
-			// 		this.store.splice(i, 1)
-			// 	}
-			// });
-			const index = this.store.items.indexOf(this)
-			this.store.items.splice(index, 1);
 
-			this.store.renderStoreCard()
-		})
 	}
 }
 

@@ -1,8 +1,10 @@
-const endPoint = "https://merienda.herokuapp.com/api/v1/stores"
+const endPoint = "https://merienda.herokuapp.com/api/v1"
+// const endPoint = "http://localhost:3000/api/v1"
 
 document.addEventListener('DOMContentLoaded', () => {
 	console.log('Loaded')
 	getData()
+	checkLoggedIn()
 	eventListeners()
 })
 
@@ -13,7 +15,7 @@ function eventListeners() {
 }
 
 function getData() {
-	fetch(endPoint)
+	fetch(`${endPoint}/stores`)
 	.then(res => res.json())
 	.then(stores => {
 		stores.data.forEach(store => {
@@ -25,6 +27,15 @@ function getData() {
 		})
 		renderStoreEvent()
 	})
+}
+
+
+function checkLoggedIn() {
+	if (localStorage.getItem("current_store") === null) {
+		document.querySelector('#login').addEventListener("click", () => renderLoginForm())
+	} else {
+		renderLogoutBtn()
+	}
 }
 
 function renderStoreEvent() {
@@ -53,8 +64,6 @@ function addItemFormHandler(e) {
 	imgInput = e.target.querySelector('#add-item-img').value,
 	descInput = e.target.querySelector('#add-item-desc').value,
 	storeId = parseInt(e.target.dataset.storeId)
-
-	// console.log(nameInput, priceInput, imgInput, descInput, storeId)
 	addItemFetch(nameInput, priceInput, imgInput, descInput, storeId)
 	e.target.reset()
 }
@@ -62,7 +71,7 @@ function addItemFormHandler(e) {
 function addItemFetch(name, price, image, description, store_id) {
 	const bodyData = {item: {name, price, image, description, store_id}}
 
-	fetch('https://merienda.herokuapp.com/api/v1/items', {
+	fetch(`${endPoint}/items`, {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json",
@@ -76,24 +85,20 @@ function addItemFetch(name, price, image, description, store_id) {
 		menuContainer = document.querySelector('.menu-container')
 
 		let newItem = new Item(itemData.id, itemData.attributes)
-		// newItem.renderItemCard(menuContainer)
 		newItem.store.renderStoreCard()
 	})
 }
 
 function removeItem(e) {
 	const id = parseInt(e.currentTarget.dataset.itemId)
-	console.log(id)
 
-	fetch(`https://merienda.herokuapp.com/api/v1/items/${id}`, {
+	fetch(`${endPoint}/items/${id}`, {
 		method: 'DELETE',
 		headers: {
 			'Content-Type': 'application/json'
 		}
 	})
 	.then(res => res.json())
-	.then(res => console.log(res))
-
 }
 
 function renderAddStoreForm() {
@@ -103,6 +108,7 @@ function renderAddStoreForm() {
 	h2 = document.createElement('h2'),
 	form = document.createElement('form'),
 	nameDiv = document.createElement('div'),
+	passwordDiv = document.createElement('div'),
 	ownerDiv = document.createElement('div'),
 	locationDiv = document.createElement('div'),
 	linkDiv = document.createElement('div'),
@@ -110,6 +116,7 @@ function renderAddStoreForm() {
 	descDiv = document.createElement('div'),
 	submitDiv = document.createElement('div'),
 	name = document.createElement('input'),
+	password = document.createElement('input'),
 	owner = document.createElement('input'),
 	location = document.createElement('input'),
 	link = document.createElement('input'),
@@ -124,6 +131,12 @@ function renderAddStoreForm() {
 	name.id = 'add-store-name'
 	nameDiv.classList.add('inputBx')
 	nameDiv.append(name)
+
+	password.setAttribute('type', 'password')
+	password.setAttribute('placeholder', 'Password')
+	password.id = 'add-store-password'
+	passwordDiv.classList.add('inputBx')
+	passwordDiv.append(password)
 
 	owner.setAttribute('type', 'text')
 	owner.setAttribute('placeholder', 'Store owner')
@@ -161,7 +174,7 @@ function renderAddStoreForm() {
 	submitDiv.append(submit)
 
 	form.id = "add-store-form"
-	form.append(nameDiv, ownerDiv, locationDiv, linkDiv, logoDiv, descDiv, submitDiv)
+	form.append(nameDiv, passwordDiv, ownerDiv, locationDiv, linkDiv, logoDiv, descDiv, submitDiv)
 
 	formContainer.classList.add('form')
 	formContainer.append(h2, form)
@@ -178,6 +191,7 @@ function renderAddStoreForm() {
 function addStoreFormHandler(e) {
 	e.preventDefault()
 	const nameInput = e.target.querySelector('#add-store-name').value,
+	passwordInput = e.target.querySelector('#add-store-password').value,
 	ownerInput = e.target.querySelector('#add-store-owner').value,
 	locationInput = e.target.querySelector('#add-store-location').value,
 	linkInput = e.target.querySelector('#add-store-link').value,
@@ -185,16 +199,16 @@ function addStoreFormHandler(e) {
 	descInput = e.target.querySelector('#add-store-desc').value
 
 
-	console.log(nameInput, ownerInput, locationInput, linkInput, logoInput, descInput)
-	addStoreFetch(nameInput, ownerInput, locationInput, linkInput, logoInput, descInput)
+	console.log(nameInput, passwordInput, ownerInput, locationInput, linkInput, logoInput, descInput)
+	addStoreFetch(nameInput, passwordInput, ownerInput, locationInput, linkInput, logoInput, descInput)
 	e.target.reset()
 }
 
 
-function addStoreFetch(name, owner, delivery_location, store_link, logo, description) {
-	const bodyData = {store: {name, owner, delivery_location, store_link, logo, description}}
+function addStoreFetch(name, password, owner, delivery_location, store_link, logo, description) {
+	const bodyData = {store: {name, password, owner, delivery_location, store_link, logo, description}}
 
-	fetch(endPoint, {
+	fetch(`${endPoint}/stores`, {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json",
@@ -204,12 +218,105 @@ function addStoreFetch(name, owner, delivery_location, store_link, logo, descrip
 	})
 	.then(res => res.json())
 	.then(store => {
-		const storeData = store.data,
+		console.log(store)
+		const storeData = store.store.data,
 		newStore = new Store(storeData, storeData.attributes)
 		newStore.renderStoreLi()
 		storeData.attributes.items.forEach(item => {
 			const newItem = new Item(item.id, item)
 		})
 		renderStoreEvent()
+	})
+}
+
+function renderLoginForm() {
+	console.log("login form")
+	const formWindow = document.querySelector('#form-window'),
+	formBox = document.createElement('div'),
+	formContainer = document.createElement('div'),
+	h2 = document.createElement('h2'),
+	form = document.createElement('form'),
+	nameDiv = document.createElement('div'),
+	passwordDiv = document.createElement('div'),
+	submitDiv = document.createElement('div'),
+	name = document.createElement('input'),
+	password = document.createElement('input'),
+	submit = document.createElement('input')
+
+	h2.innerHTML = 'Login'
+
+	name.setAttribute('type', 'text')
+	name.setAttribute('placeholder', 'Store Name')
+	name.id = 'login-name'
+	nameDiv.classList.add('inputBx')
+	nameDiv.append(name)
+
+	password.setAttribute('type', 'password')
+	password.setAttribute('placeholder', 'Password')
+	password.id = 'login-password'
+	passwordDiv.classList.add('inputBx')
+	passwordDiv.append(password)
+
+	submit.setAttribute('type', 'submit')
+	submit.setAttribute('value', 'Login')
+	submitDiv.classList.add('inputBx')
+	submitDiv.append(submit)
+
+	form.id = "add-store-form"
+	form.append(nameDiv, passwordDiv, submitDiv)
+
+	formContainer.classList.add('form')
+	formContainer.append(h2, form)
+
+	formBox.classList.add('box')
+	formBox.append(formContainer)
+
+	formWindow.replaceChild(formBox, formWindow.firstChild)
+
+	form.addEventListener('submit', (e) => loginFormHandler(e))
+}
+
+function loginFormHandler(e) {
+	e.preventDefault()
+
+	const nameInput = e.target.querySelector('#login-name').value,
+	passwordInput = e.target.querySelector('#login-password').value
+
+	console.log(nameInput, passwordInput)
+	loginFetch(nameInput, passwordInput)
+}
+
+function loginFetch(name, password) {
+	const bodyData = {
+		store: {
+			name: name,
+			password: password
+		}
+	}
+
+	fetch(`${endPoint}/login`, {
+		method: "POST",
+		headers: {"Content-Type": "application/json"},
+		body: JSON.stringify(bodyData)
+	})
+	.then(resp => resp.json())
+	.then(store=> {
+		console.log(store)
+		localStorage.setItem('current_store', store.store.data.id)
+		console.log(localStorage.getItem('current_store'))
+		location.reload()
+	})
+	.catch(function(error) {
+		document.querySelector('.box').innerHTML = "Invalid Name or password"
+	})
+}
+
+function renderLogoutBtn() {
+	const btn = document.querySelector('#login')
+	btn.innerHTML = "Logout"
+	btn.id = "logout"
+	btn.addEventListener("click", () => {
+		localStorage.removeItem('current_store')
+		location.reload()
 	})
 }
