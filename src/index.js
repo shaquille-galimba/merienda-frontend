@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	console.log('Loaded')
 	getData()
 	checkLoggedIn()
+	renderAbout()
 	eventListeners()
 })
 
@@ -12,6 +13,7 @@ function eventListeners() {
 	window.addEventListener('scroll', this.handleScroll, true);
 
 	document.querySelector('#add-store').addEventListener("click", () => renderAddStoreForm())
+	document.querySelector('#about').addEventListener("click", () => renderAbout())
 }
 
 function getData() {
@@ -319,4 +321,30 @@ function renderLogoutBtn() {
 		localStorage.removeItem('current_store')
 		location.reload()
 	})
+}
+
+function renderAbout() {
+	const aboutContainer = document.createElement('div'),
+	logo = document.createElement('img'),
+	caption = document.createElement('div'),
+	contact = document.createElement('div')
+	link = document.createElement('a'),
+	main = document.querySelector('.main')
+
+	logo.id = "logo"
+	logo.src = "logo.png"
+
+	caption.innerHTML = "Collection of local food businesses around Cavite that does deliveries." + "<br>" + "Browse by clicking a store on the left side bar." + "<br>" + "Report any bugs and concerns here:"
+
+	link.href = 'https://github.com/shaquille-galimba/merienda-frontend'
+	link.classList.add('link')
+	link.target = "_blank"
+	link.innerHTML = "Github repository"
+
+	contact.innerHTML = "For business inquiries contact: shaquillegalimba@gmail.com"
+
+	aboutContainer.classList.add("about-container")
+	aboutContainer.append(logo, caption, link, contact)
+
+	main.replaceChild(aboutContainer, main.firstChild)
 }

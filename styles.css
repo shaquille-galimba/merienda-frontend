@@ -391,3 +391,13 @@ main {
 .box .form .inputBx input::placeholder, textarea::placeholder {
 	color: inherit;
 }
+
+.about-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.about-container div {
+	text-align: center;
+}
