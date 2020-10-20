@@ -334,12 +334,12 @@ function renderAbout() {
 	logo.id = "logo"
 	logo.src = "logo.png"
 
-	caption.innerHTML = "Collection of local food businesses around Cavite that does deliveries." + "<br>" + "Browse by clicking a store on the left side bar." + "<br>" + "Report any bugs and concerns here:"
+	caption.innerHTML = "Collection of local food businesses around Cavite that does deliveries." + "<br><br>" + "Browse by clicking a store on the left side bar." + "<br><br>" + "Report any bugs and concerns here:"
 
 	link.href = 'https://github.com/shaquille-galimba/merienda-frontend'
 	link.classList.add('link')
 	link.target = "_blank"
-	link.innerHTML = "Github repository"
+	link.innerHTML = "Github repository" + "<br><br>"
 
 	contact.innerHTML = "For business inquiries contact: shaquillegalimba@gmail.com"
 
