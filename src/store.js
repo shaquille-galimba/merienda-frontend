@@ -135,7 +135,6 @@ class Store {
 		submitDiv.classList.add('inputBx')
 		submitDiv.append(submit)
 
-		// form.classList.add('add-item-form')
 		form.id = "add-item-form"
 		form.dataset.storeId = this.id
 		form.append(nameDiv, priceDiv, imgUrlDiv, descDiv, submitDiv)
@@ -148,7 +147,6 @@ class Store {
 
 		formWindow.replaceChild(formBox, formWindow.firstChild)
 
-		// form.addEventListener('submit', (e) => addItemFormHandler(e))
 		form.addEventListener('submit', (e) => addItemFormHandler(e))
 	}
 }

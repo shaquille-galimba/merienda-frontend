@@ -14,10 +14,6 @@ html {
 	background: linear-gradient(0deg, rgba(215,167,126,1) 0%, rgba(198,193,194,1) 100%);
 }
 
-
-
-
-
 /* header styles */
 
 header {
@@ -81,14 +77,13 @@ button:active {
   box-shadow: 0 5px #666;
   transform: translateY(4px);
 }
+
 /* main styles */
 main {
 	display: flex;
 	flex-wrap: wrap;
 	height: 92vh;
 }
-
-
 
 .sidebar {
 	width: 15%;
@@ -133,7 +128,6 @@ main {
 }
 
 .store-names:hover {
-	/* background-color: rgba(215,166,125,1); */
 	background-color: #f1f1f1;
 }
 
@@ -154,7 +148,6 @@ main {
 
 .logos {
 	height: 100%;
-	/* padding: 10px; */
 	margin: 10px;
 	width: 15%;
 	border: 2px solid #f1f1f1;
@@ -187,18 +180,13 @@ main {
 .item-img {
 	width: 210px;
 	height: 210px;
-	/* padding: 10px; */
 	border: 2px solid #f1f1f1;
 	margin: 10px;
-	/* align-self: center; */
 }
 
 
 .remove-link {
-	/* align-self: flex-end; */
-	/* background-color: rgba(255, 255, 255, 0.5); */
 	background-color: inherit;
-	/* padding: 3px; */
 	text-decoration: none;
 	color: red;
 	font-size: 1.5em;
@@ -208,19 +196,12 @@ main {
 }
 
 .remove-link:hover {
-	/* background-color: rgba(255, 255, 255, 0.5); */
-	/* border-radius: 8px; */
 	text-decoration: underline;
 }
 
 .img-containers {
 	position: relative;
-	/* display: flex; */
-	/* flex-direction: column; */
-	/* justify-content: flex-end; */
 	background-color: rgb(0,0,0);
-  /* background-color: rgba(0,0,0, 0.4); */
-	/* background: rgba(255, 255, 255, 0.1); */
 	background: linear-gradient(to bottom, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.1) 15%, transparent 50%, transparent 85%, rgba(255, 255, 255, 0.3) 100%);
 	border-top-left-radius: 10px;
 	border-top-right-radius: 10px;
@@ -256,13 +237,11 @@ main {
 	width: 30%;
 	text-align: center;
 	margin: 10px;
-	/* cursor: pointer; */
 	overflow: hidden;
 }
 
 .item-cards:hover {
 	border-radius: 10px;
-	/* box-shadow: 2px 2px 4px #000000; */
 	box-shadow: 0 5px 35px rgb(0, 0, 0, 0.2);
 }
 
@@ -280,15 +259,16 @@ main {
 	display: block;
 }
 
-
 ::-webkit-scrollbar-track {
   -webkit-box-shadow: none !important;
   background-color: transparent;
 }
+
 ::-webkit-scrollbar {
   width: 3px !important;
   background-color: transparent;
 }
+
 ::-webkit-scrollbar-thumb {
   background-color: transparent;
 }
@@ -349,7 +329,6 @@ main {
 .box .form h2 {
 	color: inherit;
 	font-weight: 600;
-	/* letter-spacing: 2px; */
 	margin-bottom: 30px;
 }
 
@@ -366,7 +345,6 @@ main {
 	background: transparent;
 	padding: 8px 10px;
 	border-radius: 6px;
-	/* color: #fff; */
 	font-size: 16px;
 	font-weight: 300;
 	box-shadow: inset 0 0 25px rgba(0, 0, 0, 0.2);

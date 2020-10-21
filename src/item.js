@@ -20,10 +20,8 @@ class Item {
 		price = document.createElement('div'),
 		desc = document.createElement('div')
 
-
 		img.src = this.image
 		img.classList.add('item-img')
-
 
 		imgContainer.classList.add('img-containers')
 		imgContainer.append(img)
@@ -63,8 +61,6 @@ class Item {
 		itemCard.append(imgContainer, info)
 
 		menuContainer.append(itemCard)
-
-
 	}
 }
 

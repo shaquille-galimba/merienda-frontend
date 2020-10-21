@@ -1,8 +1,6 @@
 const endPoint = "https://merienda.herokuapp.com/api/v1"
-// const endPoint = "http://localhost:3000/api/v1"
 
 document.addEventListener('DOMContentLoaded', () => {
-	console.log('Loaded')
 	getData()
 	checkLoggedIn()
 	renderAbout()
@@ -11,7 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function eventListeners() {
 	window.addEventListener('scroll', this.handleScroll, true);
-
 	document.querySelector('#add-store').addEventListener("click", () => renderAddStoreForm())
 	document.querySelector('#about').addEventListener("click", () => renderAbout())
 }
@@ -38,6 +35,16 @@ function checkLoggedIn() {
 	} else {
 		renderLogoutBtn()
 	}
+}
+
+function renderLogoutBtn() {
+	const btn = document.querySelector('#login')
+	btn.innerHTML = "Logout"
+	btn.id = "logout"
+	btn.addEventListener("click", () => {
+		localStorage.removeItem('current_store')
+		location.reload()
+	})
 }
 
 function renderStoreEvent() {
@@ -200,8 +207,6 @@ function addStoreFormHandler(e) {
 	logoInput = e.target.querySelector('#add-store-logo').value,
 	descInput = e.target.querySelector('#add-store-desc').value
 
-
-	console.log(nameInput, passwordInput, ownerInput, locationInput, linkInput, logoInput, descInput)
 	addStoreFetch(nameInput, passwordInput, ownerInput, locationInput, linkInput, logoInput, descInput)
 	e.target.reset()
 }
@@ -313,15 +318,6 @@ function loginFetch(name, password) {
 	})
 }
 
-function renderLogoutBtn() {
-	const btn = document.querySelector('#login')
-	btn.innerHTML = "Logout"
-	btn.id = "logout"
-	btn.addEventListener("click", () => {
-		localStorage.removeItem('current_store')
-		location.reload()
-	})
-}
 
 function renderAbout() {
 	const aboutContainer = document.createElement('div'),
