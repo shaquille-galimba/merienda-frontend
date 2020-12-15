@@ -6,7 +6,9 @@ Merienda is a single page application using Javascript as front-end and Rails AP
 
 * [Merienda](https://merienda.netlify.app)
 
-![Merienda](example.png)
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=X0ooMdp7vRA
+" target="_blank"><img src="http://img.youtube.com/vi/X0ooMdp7vRA/0.jpg" 
+alt="Merienda Demo Vid" width="240" height="180" border="10" /></a>
 
 ## Installation
 
